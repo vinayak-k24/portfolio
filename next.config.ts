@@ -22,9 +22,14 @@ const nextConfig: NextConfig = {
         pathname: '/**', // This allows any path under the hostname
       },
     ],
+    unoptimized: true, // Disable Image Optimization API for static export
   },
   transpilePackages: ['motion'],
-  webpack: (config, {dev}) => {
+  productionBrowserSourceMaps: false, // Disable source maps in production
+  experimental: {
+    scrollRestoration: true, // Enable scroll restoration for better UX
+  },
+  webpack: (config, { dev, isServer }) => {
     // HMR is disabled in AI Studio via DISABLE_HMR env var.
     // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
     if (dev && process.env.DISABLE_HMR === 'true') {
@@ -32,6 +37,18 @@ const nextConfig: NextConfig = {
         ignored: /.*/,
       };
     }
+
+    if (!dev && !isServer) {
+      config.optimization.splitChunks.cacheGroups = {
+        ...config.optimization.splitChunks.cacheGroups,
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      };
+    }
+
     return config;
   },
 };

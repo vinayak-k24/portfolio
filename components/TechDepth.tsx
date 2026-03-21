@@ -32,6 +32,20 @@ const categories = [
     icon: Search,
     description: 'Applying rigorous scientific methodology to validate emerging technologies and system performance.',
     skills: ['Statistical Analysis', 'Formal Verification', 'Benchmarking', 'LaTeX', 'Simulation']
+  },
+  {
+    id: 'devops',
+    title: 'DevOps & Automation',
+    icon: Cpu,
+    description: 'Streamlining development and deployment pipelines with modern DevOps practices.',
+    skills: ['CI/CD', 'Jenkins', 'GitHub Actions', 'Docker', 'Kubernetes']
+  },
+  {
+    id: 'web',
+    title: 'Web Development',
+    icon: ChevronRight,
+    description: 'Building responsive and performant web applications with modern frameworks and tools.',
+    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js']
   }
 ];
 
