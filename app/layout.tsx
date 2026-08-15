@@ -22,7 +22,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: 'Intelligent Systems Portfolio',
+  title: 'Vinayak Kone Portfolio',
   description: 'Exploring intelligent systems, data architectures, and emerging technologies.',
 };
 

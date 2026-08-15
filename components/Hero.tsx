@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
@@ -41,9 +42,18 @@ export default function Hero() {
         </motion.div>
 
         <div className="flex-1 flex justify-center items-center relative">
-          {/* Organic Abstract Patterns - simplified (removed large square) */}
-          <div className="relative w-[260px] h-[260px] md:w-[320px] md:h-[320px] lg:w-[380px] lg:h-[380px] bg-accent/8 rounded-full filter blur-sm opacity-60" />
           <div className="absolute w-[320px] h-[320px] md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] bg-accent/12 rounded-[40%] mix-blend-overlay" />
+          <div className="relative w-[220px] h-[220px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl shadow-black/40 bg-secondary/50 backdrop-blur-sm">
+            <Image
+              src="/images/profile.jpg"
+              alt="Vinayak Kone"
+              fill
+              className="object-cover object-top scale-[0.96]"
+              priority
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-accent/20 rounded-[2rem]" />
+          </div>
         </div>
       </div>
     </section>
