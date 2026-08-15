@@ -29,13 +29,8 @@ export default function Education() {
             className="lg:col-span-2 group relative bg-secondary/20 border border-white/5 rounded-[2rem] p-8 md:p-12 hover:bg-secondary/30 transition-all duration-500"
           >
             <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-white p-4 flex items-center justify-center overflow-hidden shrink-0 shadow-xl">
-                {/* KLE Tech Logo Representation */}
-                <svg viewBox="0 0 100 100" className="w-full h-full text-[#003366]">
-                  <path fill="currentColor" d="M50 10L10 30l40 20 40-20-40-20zm0 30L20 25l30-15 30 15-30 15z" />
-                  <path fill="currentColor" d="M10 40v30l40 20 40-20V40L50 60 10 40z" />
-                  <path fill="currentColor" d="M50 70L25 57.5V47.5L50 60l25-12.5v10L50 70z" opacity="0.5" />
-                </svg>
+              <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-white p-2 flex items-center justify-center overflow-hidden shrink-0 shadow-xl">
+                <Image src="https://www.kletech.ac.in/admission/images/kle-footer-logo.webp" alt="KLE Tech Logo" width={128} height={128} className="object-contain" />
               </div>
 
               <div className="flex-1">

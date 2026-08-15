@@ -46,6 +46,8 @@ export default function Papers() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [focusedIndex, setFocusedIndex] = useState<number>(0);
+  const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   const checkScroll = () => {
     if (scrollRef.current) {
@@ -62,14 +64,66 @@ export default function Papers() {
   }, []);
 
   const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const scrollAmount = 500;
-      scrollRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
+    // determine currently centered index by measuring distances to container center
+    const getCenteredIndex = () => {
+      if (!scrollRef.current) return focusedIndex;
+      const container = scrollRef.current;
+      const containerRect = container.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+      let closest = 0;
+      let minDist = Infinity;
+      itemRefs.current.forEach((el, idx) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const elCenter = rect.left + rect.width / 2;
+        const dist = Math.abs(elCenter - containerCenter);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = idx;
+        }
       });
+      return closest;
+    };
+
+    const current = getCenteredIndex();
+    if (direction === 'left') {
+      scrollToIndex(Math.max(0, current - 1));
+    } else {
+      scrollToIndex(Math.min(papers.length - 1, current + 1));
     }
   };
+
+  const scrollToIndex = (index: number) => {
+    const el = itemRefs.current[index];
+    if (!el || !scrollRef.current) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    setFocusedIndex(index);
+  };
+
+  useEffect(() => {
+    const root = scrollRef.current;
+    if (!root) return;
+    const options: IntersectionObserverInit = {
+      root,
+      rootMargin: '0px',
+      threshold: 0.6
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const index = Number((entry.target as HTMLElement).dataset.index);
+        if (entry.isIntersecting) setFocusedIndex(index);
+      });
+    }, options);
+
+    itemRefs.current.forEach((el) => { if (el) observer.observe(el); });
+    return () => observer.disconnect();
+  }, []);
+
+  // center initial slide after mount (allow layout)
+  useEffect(() => {
+    const t = setTimeout(() => scrollToIndex(0), 120);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <section id="papers" className="py-32 bg-secondary/10 relative overflow-hidden">
@@ -103,21 +157,42 @@ export default function Papers() {
       </div>
 
       <div className="relative px-6">
+        {/* Side scroll controls */}
+        <button 
+          onClick={() => scroll('left')}
+          disabled={!canScrollLeft}
+          className={`absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/10 flex items-center justify-center transition-all z-40 ${canScrollLeft ? 'text-white hover:border-accent hover:text-accent' : 'text-white/10 cursor-not-allowed'}`}
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button 
+          onClick={() => scroll('right')}
+          disabled={!canScrollRight}
+          className={`absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/10 flex items-center justify-center transition-all z-40 ${canScrollRight ? 'text-white hover:border-accent hover:text-accent' : 'text-white/10 cursor-not-allowed'}`}
+        >
+          <ChevronRight size={24} />
+        </button>
+
         <div 
           ref={scrollRef}
           onScroll={checkScroll}
           className="overflow-x-auto pb-12 hide-scrollbar snap-x snap-mandatory"
         >
-          <div className="flex gap-8 min-w-max px-[10vw]">
+          <div className="flex gap-8 min-w-max px-8 justify-center items-start">
+            {/* leading spacer to allow first card to center */}
+            <div className="w-[520px] md:w-[720px] h-[460px] md:h-[620px] shrink-0" />
             {papers.map((paper, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="w-[400px] md:w-[550px] shrink-0 snap-center"
+                className="w-[520px] md:w-[720px] h-[460px] md:h-[620px] shrink-0 snap-center flex"
+                ref={el => itemRefs.current[i] = el}
+                data-index={i}
+                onClick={() => scrollToIndex(i)}
               >
-                <div className="group relative bg-background/40 border border-white/5 rounded-[2.5rem] p-8 md:p-10 hover:border-accent/30 transition-all duration-500 h-full flex flex-col backdrop-blur-sm">
+                <div className={`group relative bg-background/40 border border-white/5 rounded-[2.5rem] p-8 md:p-10 hover:border-accent/30 transition-all duration-500 h-full flex flex-col ${focusedIndex === i ? 'filter-none scale-100 opacity-100' : 'filter blur-sm scale-95 opacity-70'}`}>
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500">
                       <FileText size={24} />
@@ -151,12 +226,12 @@ export default function Papers() {
                 </div>
               </motion.div>
             ))}
+            {/* trailing spacer to allow last card to center */}
+            <div className="w-[520px] md:w-[720px] h-[460px] md:h-[620px] shrink-0" />
           </div>
         </div>
         
-        {/* Glass Faded Edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-[15vw] bg-gradient-to-r from-background via-background/80 to-transparent pointer-events-none z-20 backdrop-blur-[2px]" />
-        <div className="absolute right-0 top-0 bottom-0 w-[15vw] bg-gradient-to-l from-background via-background/80 to-transparent pointer-events-none z-20 backdrop-blur-[2px]" />
+        {/* Removed faded-edge overlays so cards at edges are fully visible */}
       </div>
 
       <motion.div 

@@ -41,10 +41,9 @@ export default function Hero() {
         </motion.div>
 
         <div className="flex-1 flex justify-center items-center relative">
-          {/* Organic Abstract Patterns - No Profile Image */}
-          <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-accent/10 clip-path-[polygon(50%_0%,_100%_38%,_82%_100%,_18%_100%,_0%_38%)]"></div>
-          <div className="absolute w-[350px] h-[350px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[550px] bg-accent/20 clip-path-[polygon(20%_0%,_80%_0%,_100%_50%,_80%_100%,_20%_100%,_0%_50%)]"></div>
-          <div className="absolute w-[400px] h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] bg-accent/5 clip-path-[polygon(50%_0%,_100%_25%,_75%_100%,_25%_100%,_0%_25%)]"></div>
+          {/* Organic Abstract Patterns - simplified (removed large square) */}
+          <div className="relative w-[260px] h-[260px] md:w-[320px] md:h-[320px] lg:w-[380px] lg:h-[380px] bg-accent/8 rounded-full filter blur-sm opacity-60" />
+          <div className="absolute w-[320px] h-[320px] md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] bg-accent/12 rounded-[40%] mix-blend-overlay" />
         </div>
       </div>
     </section>

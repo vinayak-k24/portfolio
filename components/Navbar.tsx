@@ -6,11 +6,11 @@ import { Menu, X, Github, BookOpen, Linkedin, Award, FileText } from 'lucide-rea
 
 const navItems = [
   { name: 'Education', href: '#education' },
-  { name: 'Timeline', href: '#timeline' },
+  { name: 'Professional Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
   { name: 'Research', href: '#papers' },
   { name: 'Skills', href: '#systems' },
-  { name: 'Certs', href: '#certifications' },
+  { name: 'Certifications', href: '#certifications' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -41,7 +41,7 @@ export default function Navbar() {
       
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <motion.a 
-          href="#"
+          href="/"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="text-xl font-light tracking-tighter text-white font-serif italic"
@@ -63,31 +63,10 @@ export default function Navbar() {
               {item.name}
             </motion.a>
           ))}
-          <a 
-            href="https://orcid.org/0000-0001-8238-6960" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-text-secondary hover:text-white transition-colors"
-            title="ORCID"
-          >
-            <Award size={18} />
-          </a>
-          <a 
-            href="https://www.linkedin.com/in/vinayak-kone-8ba631214/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-text-secondary hover:text-white transition-colors"
-            title="LinkedIn"
-          >
+          <a href="https://www.linkedin.com/in/vinayak-kone-8ba631214/" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white transition-colors" title="LinkedIn">
             <Linkedin size={18} />
           </a>
-          <a 
-            href="https://github.com/vinayak-k24" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-text-secondary hover:text-white transition-colors"
-            title="GitHub"
-          >
+          <a href="https://github.com/vinayak-k24" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white transition-colors" title="GitHub">
             <Github size={18} />
           </a>
         </div>
@@ -118,16 +97,24 @@ export default function Navbar() {
               {item.name}
             </a>
           ))}
-          <div className="flex gap-4 pt-4 border-t border-white/5">
-            <a href="https://orcid.org/0000-0001-8238-6960" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white">
-              <Award size={20} />
+          <div className="pt-4 border-t border-white/5 text-sm space-y-2">
+            <a href="https://learn.microsoft.com/" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white flex items-center gap-2">
+              <FileText size={18} /> <span>Microsoft Learn</span>
             </a>
-            <a href="https://www.linkedin.com/in/vinayak-kone-8ba631214/" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white">
-              <Linkedin size={20} />
+            <a href="https://www.cloudskillsboost.google/" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white flex items-center gap-2">
+              <Cloud size={18} /> <span>Google Skills</span>
             </a>
-            <a href="https://github.com/vinayak-k24" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white">
-              <Github size={20} />
+            <a href="https://credly.com/" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white flex items-center gap-2">
+              <Award size={18} /> <span>Credly</span>
             </a>
+            <div className="flex gap-4 pt-2">
+              <a href="https://www.linkedin.com/in/vinayak-kone-8ba631214/" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white flex items-center gap-2">
+                <Linkedin size={18} /> <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/vinayak-k24" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white flex items-center gap-2">
+                <Github size={18} /> <span>GitHub</span>
+              </a>
+            </div>
           </div>
         </motion.div>
       )}
