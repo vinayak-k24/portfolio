@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Mail, Linkedin, Github, BookOpen } from 'lucide-react';
+import { Mail, Linkedin, Github, BookOpen, Award, ExternalLink } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -23,12 +23,25 @@ export default function Contact() {
             Open for research collaborations, architectural consultations, and innovative system design.
           </p>
 
+          {/* Contact Form Link / Email */}
+          <div className="mb-16">
+            <a 
+              href="mailto:VSKONENPN@gmail.com"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/10 text-text-secondary hover:text-white hover:border-accent/50 transition-all group"
+            >
+              <Mail size={18} />
+              <span className="font-mono text-xs uppercase tracking-widest">Send me an email</span>
+            </a>
+          </div>
+
           <div className="flex flex-col items-center gap-12">
-            <div className="flex gap-8">
+            <div className="flex gap-8 flex-wrap justify-center">
               {[
                 { icon: Github, href: 'https://github.com/vinayak-k24', title: 'GitHub' },
                 { icon: Linkedin, href: 'https://www.linkedin.com/in/vinayak-kone-8ba631214/', title: 'LinkedIn' },
+                { icon: Award, href: 'https://orcid.org/0000-0001-8238-6960', title: 'ORCID' },
                 { icon: BookOpen, href: 'https://www.researchgate.net/profile/Vinayak-Kone', title: 'ResearchGate' },
+                { icon: ExternalLink, href: 'https://www.credly.com/', title: 'Credly' },
                 { icon: Mail, href: 'mailto:VSKONENPN@gmail.com', title: 'Email' }
               ].map((social, i) => (
                 <motion.a

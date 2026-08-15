@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
 
 export default function Hero() {
   return (
@@ -28,27 +27,24 @@ export default function Hero() {
             Welcome to my portfolio
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-8 leading-tight">
-            Vinayak Sudhakar Kone
+            Vinayak Kone
           </h1>
-          <p className="text-xl text-text-secondary mb-12 leading-relaxed max-w-2xl font-light">
-            I am a passionate software engineer with expertise in machine learning, distributed systems, and research-driven engineering. I thrive on solving complex problems and building innovative solutions that make a difference.
+          <p className="text-xl text-text-secondary mb-4 leading-relaxed font-light max-w-3xl">
+            System Engineer with experience in developing cloud-native and AI-powered applications on Microsoft Azure. 
+            Started with Azure infrastructure and backend API development using Python and FastAPI and specialized in 
+            Generative AI and agent-based solutions.
+          </p>
+          <p className="text-lg text-text-secondary mb-12 leading-relaxed font-light max-w-3xl">
+            Experienced in building, orchestrating, and deploying AI agents using Azure AI Foundry, Copilot Studio, 
+            Semantic Kernel, AutoGen, and Microsoft Agentic Framework.
           </p>
         </motion.div>
 
         <div className="flex-1 flex justify-center items-center relative">
-          <div className="relative w-56 h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 bg-gradient-to-r from-accent/30 to-transparent p-1 rounded-lg">
-            <Image
-              src="/images/profile.jpg" // Correct path to the provided image
-              alt="Vinayak Sudhakar Kone"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg shadow-lg"
-            />
-          </div>
-          {/* Organic Abstract Patterns */}
-          <div className="absolute -z-10 w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-accent/10 clip-path-[polygon(50%_0%,_100%_38%,_82%_100%,_18%_100%,_0%_38%)]"></div>
-          <div className="absolute -z-20 w-[350px] h-[350px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[550px] bg-accent/20 clip-path-[polygon(20%_0%,_80%_0%,_100%_50%,_80%_100%,_20%_100%,_0%_50%)]"></div>
-          <div className="absolute -z-30 w-[400px] h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] bg-accent/5 clip-path-[polygon(50%_0%,_100%_25%,_75%_100%,_25%_100%,_0%_25%)]"></div>
+          {/* Organic Abstract Patterns - No Profile Image */}
+          <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-accent/10 clip-path-[polygon(50%_0%,_100%_38%,_82%_100%,_18%_100%,_0%_38%)]"></div>
+          <div className="absolute w-[350px] h-[350px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[550px] bg-accent/20 clip-path-[polygon(20%_0%,_80%_0%,_100%_50%,_80%_100%,_20%_100%,_0%_50%)]"></div>
+          <div className="absolute w-[400px] h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] bg-accent/5 clip-path-[polygon(50%_0%,_100%_25%,_75%_100%,_25%_100%,_0%_25%)]"></div>
         </div>
       </div>
     </section>

@@ -2,50 +2,57 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Brain, Cpu, Database, Network, Search, ChevronRight } from 'lucide-react';
+import { Brain, Cpu, Database, Network, Search, ChevronRight, Cloud, Code, Shield } from 'lucide-react';
 
 const categories = [
   {
     id: 'ai',
-    title: 'Gen AI & Intelligence',
+    title: 'Gen AI & Agentic Systems',
     icon: Brain,
-    description: 'Specializing in Generative AI and Agentic systems to build autonomous, reasoning-capable applications.',
-    skills: ['Gen AI', 'Agentic AI', 'Machine Learning', 'Python', 'LSTM', 'Transformers']
+    description: 'Specializing in Generative AI, agent-based solutions, and multi-agent orchestration using Azure AI Foundry, Copilot Studio, Semantic Kernel, AutoGen, and Microsoft Agentic Framework.',
+    skills: ['Copilot Studio', 'Azure AI Foundry', 'Semantic Kernel', 'AutoGen', 'Microsoft Agentic Framework', 'Model Context Protocol (MCP)', 'Multi-Agent Systems', 'Azure OpenAI', 'RAG', 'Prompt Engineering']
   },
   {
     id: 'cloud',
-    title: 'Cloud Computing',
-    icon: Network,
-    description: 'Architecting resilient infrastructure on global cloud platforms with a focus on scalability and security.',
-    skills: ['Microsoft Azure', 'Google Cloud', 'MCP', 'Cloud Native', 'Distributed Systems']
-  },
-  {
-    id: 'blockchain',
-    title: 'Blockchain & Security',
-    icon: Database,
-    description: 'Researching decentralized protocols and cybersecurity frameworks for secure data governance.',
-    skills: ['Blockchain', 'Cybersecurity', 'Sharding', 'Consensus Protocols', 'Forensics']
-  },
-  {
-    id: 'research',
-    title: 'Research & Modeling',
-    icon: Search,
-    description: 'Applying rigorous scientific methodology to validate emerging technologies and system performance.',
-    skills: ['Statistical Analysis', 'Formal Verification', 'Benchmarking', 'LaTeX', 'Simulation']
+    title: 'Cloud Computing (Azure & GCP)',
+    icon: Cloud,
+    description: 'Expert in Microsoft Azure (primary) and Google Cloud Platform. Proficient in Azure App Services, Azure Functions, Azure AI services, Azure SQL, Cosmos DB, and GCP cloud resources.',
+    skills: ['Microsoft Azure', 'Azure App Services', 'Azure Functions', 'Azure AI Foundry', 'Azure OpenAI', 'Azure SQL', 'Azure Cosmos DB', 'Google Cloud Platform', 'Cloud Native', 'Serverless']
   },
   {
     id: 'devops',
-    title: 'DevOps & Automation',
+    title: 'DevOps & MLOps',
     icon: Cpu,
-    description: 'Streamlining development and deployment pipelines with modern DevOps practices.',
-    skills: ['CI/CD', 'Jenkins', 'GitHub Actions', 'Docker', 'Kubernetes']
+    description: 'Streamlining development and deployment with Azure DevOps CI/CD pipelines, Docker containerization, and ML operations for production-ready AI solutions.',
+    skills: ['Azure DevOps', 'CI/CD Pipelines', 'Docker', 'Git', 'MLOps', 'Containerization', 'Automated Deployment', 'Build Automation', 'Release Management']
   },
   {
-    id: 'web',
-    title: 'Web Development',
-    icon: ChevronRight,
-    description: 'Building responsive and performant web applications with modern frameworks and tools.',
-    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js']
+    id: 'backend',
+    title: 'Backend Development',
+    icon: Code,
+    description: 'Building scalable REST APIs and backend services using Python and FastAPI for enterprise applications and AI-powered capabilities.',
+    skills: ['Python', 'FastAPI', 'REST APIs', 'Backend Services', 'API Integration', 'Microservices', 'Enterprise Applications']
+  },
+  {
+    id: 'security',
+    title: 'DevSecOps & Security',
+    icon: Shield,
+    description: 'Incorporating security practices with SonarQube, SAST, DAST, and OWASP-aligned reviews for secure SDLC and vulnerability remediation.',
+    skills: ['SonarQube', 'SAST', 'DAST', 'OWASP', 'Secure SDLC', 'Vulnerability Assessment', 'Security Reviews']
+  },
+  {
+    id: 'quantum',
+    title: 'Quantum Computing',
+    icon: Search,
+    description: 'Exploring quantum algorithms and hybrid quantum-classical systems using Qiskit and IBM Quantum Runtime for optimization problems.',
+    skills: ['Qiskit', 'IBM Quantum', 'Quantum Algorithms', 'Hybrid Quantum-Classical Systems', 'Quantum Optimization', 'Error Mitigation']
+  },
+  {
+    id: 'core',
+    title: 'Core CS Fundamentals',
+    icon: Database,
+    description: 'Strong foundation from academic coursework: OOP in C++, DSA, OS, CN, DBMS, EDA, ML, NLP, Blockchain, and Cloud Computing.',
+    skills: ['OOP in C++', 'Data Structures', 'Algorithms', 'Operating Systems', 'Computer Networks', 'DBMS', 'EDA', 'ML', 'NLP', 'Blockchain']
   }
 ];
 

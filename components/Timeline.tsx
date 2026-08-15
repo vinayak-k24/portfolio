@@ -2,63 +2,42 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Building, GraduationCap, Calendar } from 'lucide-react';
 
 const milestones = [
   {
     year: '2025',
-    title: 'Systems Engineer',
-    org: 'TATA Consultancy Services',
-    description: 'Joined TCS in May 2025, focusing on enterprise-scale cloud architectures and intelligent system integration.',
-    icon: () => (
-      <svg viewBox="0 0 24 24" className="w-6 h-6 text-white">
-        <path fill="currentColor" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-      </svg>
-    )
+    title: 'System Engineer',
+    org: 'TATA Consultancy Services (TCS)',
+    description: 'Developing cloud-native applications and backend services on Microsoft Azure using Python and FastAPI. Designing and deploying conversational AI agents using Copilot Studio and Azure AI Foundry. Building Generative AI solutions with Azure OpenAI, developing agent-based applications using Semantic Kernel, AutoGen, and Microsoft Agentic Framework. Working on Supply Chain Management Platform on Microsoft Fabric, Plant Operators AI Advisor with 88% RUL accuracy, and Procurement Advisor Platform processing 60-70 document queries per request.',
+    icon: Building,
+    period: 'May 2025 - Present'
+  },
+  {
+    year: '2023-24',
+    title: 'REU Research Scholar',
+    org: 'University Research Lab',
+    description: 'Conducted intensive PhD-level research training from Jan 2023 to Jan 2024. Learned research methodology, experimental design, and academic paper writing. Published multiple papers in Springer, IEEE, and other reputed journals. Focused on blockchain scalability, sharding-based consensus mechanisms, and forensic evidence management systems.',
+    icon: GraduationCap,
+    period: 'Jan 2023 - Jan 2024'
   },
   {
     year: '2024',
     title: 'Graduate Engineer',
     org: 'KLE Technological University',
-    description: 'Completed Bachelor of Engineering with a focus on Intelligent Systems and Distributed Computing.',
-    icon: () => (
-      <svg viewBox="0 0 100 100" className="w-6 h-6 text-white">
-        <path fill="currentColor" d="M50 10L10 30l40 20 40-20-40-20zm0 30L20 25l30-15 30 15-30 15z" />
-        <path fill="currentColor" d="M10 40v30l40 20 40-20V40L50 60 10 40z" />
-      </svg>
-    )
+    description: 'Completed Bachelor of Engineering with CGPA 9.26/10. Studied core subjects: OOP in C++, DSA, OS, CN, DBMS, EDA, ML, NLP, Blockchain, Cloud Computing, and Quantum Computing. Specialized in Intelligent Systems and distributed computing architectures.',
+    icon: GraduationCap,
+    period: '2020 - 2024'
   },
   {
-    year: '2023',
-    title: 'Research Intern',
-    org: 'AI Research Lab',
-    description: 'Developed and optimized deep learning models for edge devices, focusing on quantization techniques.',
-    icon: Brain
-  },
-  {
-    year: '2022',
-    title: 'Full Stack Developer',
-    org: 'Tech Solutions',
-    description: 'Built scalable web applications using modern frameworks and cloud-native architectures.',
-    icon: Cpu
-  },
-  {
-    year: '2021',
-    title: 'Systems Engineering Intern',
-    org: 'Infrastructure Group',
-    description: 'Assisted in managing distributed server clusters and optimizing network protocols.',
-    icon: Network
-  },
-  {
-    year: '2020',
-    title: 'Commenced B.E.',
-    org: 'KLE Tech',
-    description: 'Started academic journey in Computer Science and Engineering.',
-    icon: GraduationCap
+    year: '2024-25',
+    title: 'Career Transition & Skill Development',
+    org: 'Self-Directed Learning',
+    description: 'Between graduation (Nov 2024) and TCS joining (May 2025), focused on advancing skills in GCP cloud resources, Azure DevOps, Docker, MLOps, and Quantum Computing. Worked on personal projects including Quantum Currency Arbitrage Optimization and Multi-Agent Supply Chain Platform.',
+    icon: Building,
+    period: 'Nov 2024 - May 2025'
   }
 ];
-
-import { Brain, Cpu, Network, GraduationCap } from 'lucide-react';
 
 export default function Timeline() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -140,7 +119,8 @@ export default function Timeline() {
                     <m.icon className="w-6 h-6 text-accent" />
                   </div>
                   <h3 className="text-2xl font-light text-white mb-2 group-hover:text-accent transition-colors">{m.title}</h3>
-                  <p className="text-accent/80 text-sm font-medium mb-6 tracking-wide uppercase">{m.org}</p>
+                  <p className="text-accent/80 text-sm font-medium mb-3 tracking-wide uppercase">{m.org}</p>
+                  <p className="text-text-secondary text-xs font-mono mb-6">{m.period}</p>
                   <p className="text-lg text-text-secondary leading-relaxed font-light">{m.description}</p>
                 </div>
               </motion.div>
