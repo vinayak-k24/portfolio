@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex items-center px-6 overflow-hidden">
+    <section id="top" className="relative h-screen flex items-center px-6 overflow-hidden">
       {/* Animated Grid Background */}
       <div className="absolute inset-0 grid-background opacity-20 pointer-events-none" />
       <motion.div 

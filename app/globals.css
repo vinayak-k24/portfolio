@@ -73,7 +73,6 @@
   }
   .hide-scrollbar {
     -ms-overflow-style: none;
-    scrollbar-width: none;
   }
   /* utility to force a visible scrollbar (desktop) */
   .show-scrollbar::-webkit-scrollbar {
@@ -89,6 +88,5 @@
   }
   .show-scrollbar {
     -ms-overflow-style: auto;
-    scrollbar-width: auto;
   }
 }

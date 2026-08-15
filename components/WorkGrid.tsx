@@ -8,24 +8,24 @@ const professionalProjects = [
   {
     id: 'p1',
     title: "Plant Operators AI Advisor",
-    subtitle: "Azure AI Foundry & Machine Learning",
-    description: "Built an AI advisor using Azure Machine Learning Studio and Azure AI Foundry implementing Root Cause Analysis with Remaining Useful Life prediction and Anomaly Detection.",
-    problem: "Industrial equipment failures were causing unplanned downtime and maintenance costs.",
-    architecture: "Azure ML Studio for model training, Azure AI Foundry for deployment, custom LSTM models for RUL prediction.",
-    metrics: "Achieved 88% accuracy on RUL validation dataset and 93% accuracy on anomaly detection.",
-    tech: ["Azure ML", "Azure AI Foundry", "Python", "LSTM", "Anomaly Detection"],
+    subtitle: "Cloud-Native AI Backend Platform",
+    description: "Engineered a cloud-native Python backend for an AI-assisted operations platform combining REST APIs and real-time streaming, while operationalizing anomaly detection and Remaining Useful Life (RUL) outputs for downstream analytics and recommendation workflows.",
+    problem: "Plant teams needed faster and more reliable operational decisions from telemetry streams, but existing workflows lacked unified ML-serving endpoints, active-state filtering, and low-latency KPI visibility.",
+    architecture: "Built layered architecture (router/service/repository) with time-windowed analytics endpoints for anomalies, RUL, and recommendations, backed by async queue-based vectorization/indexing workflows. Developed and deployed anomaly detection (unsupervised) and RUL prediction (supervised regression) models in Azure ML Studio, and integrated production safeguards including JWT+RBAC, rate limiting, license validation, secure secret management, and standardized response/error middleware.",
+    metrics: "Improved reliability, observability, and decision latency through unified KPI snapshot aggregation, active-state filtering, and resilient ML-backed analytics APIs for data-driven operations.",
+    tech: ["Python", "FastAPI", "Uvicorn", "Azure ML Studio", "Anomaly Detection (Unsupervised)", "RUL Prediction (Supervised Regression)", "Azure Event Hubs", "Microsoft Fabric", "Kusto", "SQLAlchemy", "Azure Blob Storage", "Azure AI Search", "Azure OpenAI", "Pydantic", "JWT + RBAC", "slowapi", "pandas", "numpy", "scipy", "aiohttp", "requests", "Docker"],
     // image removed - visuals simplified
     category: 'professional'
   },
   {
     id: 'p2',
     title: "Procurement Advisor Platform",
-    subtitle: "Azure AI Foundry Agents",
-    description: "Developed a procurement advisor platform using Azure AI Foundry agents with enhanced AI Search capabilities for document processing and ambiguity resolution.",
-    problem: "Manual procurement processes were slow and prone to errors in document interpretation.",
-    architecture: "Azure AI Foundry agents, Azure AI Search, custom RAG pipeline for document querying.",
-    metrics: "Processes 60-70 document queries per request compared to previous 7-8, significantly improving ambiguity resolution.",
-    tech: ["Azure AI Foundry", "AI Search", "RAG", "Python", "Agents"],
+    subtitle: "Python Backend Platform on Azure",
+    description: "Engineered and architected a Python-based backend platform on Azure for high-volume, document-centric procurement workloads, combining FastAPI/Uvicorn REST APIs with queue-backed asynchronous orchestration via Azure Functions for AI-assisted extraction and analysis.",
+    problem: "Manual procurement workflows struggled with high document volume, ambiguous content, slow turnaround, and inconsistent accuracy in extraction, interpretation, and downstream decision support.",
+    architecture: "Event-driven, queue-backed processing pipeline integrating Azure Blob Storage, Queue Storage, Cosmos DB, Azure AI Search, Document Intelligence, Azure Identity, and Azure AI Projects/Agents with OpenAI SDK, Agent Framework, and Agent Framework Foundry. Built with modular services, dependency injection, and resilient async I/O across HTTPX/AIOHTTP/Requests for robust cloud-native execution.",
+    metrics: "Improved throughput to process 60–70 document queries per request (up from 7–8), while increasing platform reliability and maintainability through production controls including request validation, auth, rate limiting (SlowAPI), structured exception handling, and Azure AI Evaluation-driven quality/performance validation.",
+    tech: ["Python", "FastAPI", "Uvicorn", "Azure Functions", "Azure Blob Storage", "Azure Queue Storage", "Azure Cosmos DB", "Azure AI Search", "Azure Document Intelligence", "Azure Identity", "Azure AI Projects/Agents", "Azure OpenAI", "OpenAI SDK", "Agent Framework", "Agent Framework Foundry", "Azure AI Evaluation", "Pydantic", "Python-JOSE", "HTTPX", "AIOHTTP", "Requests", "Playwright", "BeautifulSoup", "PyMuPDF", "OpenPyXL", "DocxTPL", "Docker", "Azure DevOps"],
     // image removed - visuals simplified
     category: 'professional'
   },
@@ -98,6 +98,7 @@ export default function WorkGrid() {
   // No expand/collapse — show details for every project
   // Default to professional first as requested
   const [activeFilter, setActiveFilter] = useState<'all' | 'professional' | 'personal'>('professional');
+  const [expandedTech, setExpandedTech] = useState<Record<string, boolean>>({});
 
   const filteredProjects = activeFilter === 'all' 
     ? [...professionalProjects, ...personalProjects]
@@ -149,9 +150,13 @@ export default function WorkGrid() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-stretch auto-rows-fr">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           {filteredProjects.map((project, index) => {
             const isExpanded = true; // always show
+            const techLimit = 8;
+            const showAllTech = !!expandedTech[project.id];
+            const visibleTech = showAllTech ? project.tech : project.tech.slice(0, techLimit);
+            const remainingTech = Math.max(0, project.tech.length - techLimit);
             return (
               <motion.div
                 key={project.id}
@@ -159,10 +164,10 @@ export default function WorkGrid() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={`group relative bg-secondary/40 border border-white/5 rounded-3xl transition-all hover:border-accent/30 md:min-h-[420px] h-full`} 
+                className={`group relative bg-secondary/40 border border-white/5 rounded-3xl transition-all hover:border-accent/30`} 
               >
-                <div className={`flex flex-col md:flex-row h-full`}>
-                  <div className={`p-10 flex flex-col justify-between w-full md:w-1/2 h-full`}>
+                <div className={`flex flex-col md:flex-row`}>
+                  <div className={`p-10 flex flex-col justify-between w-full md:w-1/2`}>
                     <div>
                       <div className="flex justify-between items-start mb-6">
                         <div>
@@ -180,18 +185,34 @@ export default function WorkGrid() {
 
                       <p className="text-text-secondary mb-8 leading-relaxed font-light">{project.description}</p>
 
-                      <div className="flex flex-wrap gap-3 mb-10">
-                        {project.tech.map(t => (
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {visibleTech.map(t => (
                           <span key={t} className="px-3 py-1 bg-white/5 text-[10px] font-mono text-text-secondary rounded-full border border-white/5">
                             {t}
                           </span>
                         ))}
+                        {!showAllTech && remainingTech > 0 && (
+                          <button
+                            onClick={() => setExpandedTech(prev => ({ ...prev, [project.id]: true }))}
+                            className="px-3 py-1 bg-accent/10 text-[10px] font-mono text-accent rounded-full border border-accent/20 hover:bg-accent/20 transition-colors"
+                          >
+                            +{remainingTech} more
+                          </button>
+                        )}
+                        {showAllTech && project.tech.length > techLimit && (
+                          <button
+                            onClick={() => setExpandedTech(prev => ({ ...prev, [project.id]: false }))}
+                            className="px-3 py-1 bg-white/5 text-[10px] font-mono text-text-secondary rounded-full border border-white/10 hover:border-accent/30 hover:text-accent transition-colors"
+                          >
+                            Show less
+                          </button>
+                        )}
                       </div>
                     </div>
 
                     {/* Details are always visible on the right */}
                   </div>
-                  <motion.div className={`w-full md:w-1/2 p-8 border-l border-white/5 rounded-r-3xl bg-background/5 flex flex-col justify-between h-full`}>
+                  <motion.div className={`w-full md:w-1/2 p-8 border-l border-white/5 rounded-r-3xl bg-background/5 flex flex-col justify-between`}>
                     <div className="space-y-6">
                       <div>
                         <h4 className="font-mono text-[10px] text-accent uppercase tracking-widest mb-3">The Problem</h4>
