@@ -2,15 +2,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
-import { Menu, X, Github, BookOpen } from 'lucide-react';
+import { Menu, X, Github, BookOpen, Linkedin, Award, FileText } from 'lucide-react';
 
 const navItems = [
   { name: 'Education', href: '#education' },
   { name: 'Timeline', href: '#timeline' },
-  { name: 'Certs', href: '#certifications' },
-  { name: 'Work', href: '#work' },
+  { name: 'Projects', href: '#projects' },
   { name: 'Research', href: '#papers' },
-  { name: 'Systems', href: '#systems' },
+  { name: 'Skills', href: '#systems' },
+  { name: 'Certs', href: '#certifications' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -64,15 +64,23 @@ export default function Navbar() {
             </motion.a>
           ))}
           <a 
-            href="https://www.researchgate.net/profile/Vinayak-Kone" 
+            href="https://orcid.org/0000-0001-8238-6960" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-text-secondary hover:text-white transition-colors"
-            title="ResearchGate"
+            title="ORCID"
           >
-            <BookOpen size={18} />
+            <Award size={18} />
           </a>
-          <div className="h-4 w-[1px] bg-white/10 mx-2" />
+          <a 
+            href="https://www.linkedin.com/in/vinayak-kone-8ba631214/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-text-secondary hover:text-white transition-colors"
+            title="LinkedIn"
+          >
+            <Linkedin size={18} />
+          </a>
           <a 
             href="https://github.com/vinayak-k24" 
             target="_blank" 
@@ -110,6 +118,17 @@ export default function Navbar() {
               {item.name}
             </a>
           ))}
+          <div className="flex gap-4 pt-4 border-t border-white/5">
+            <a href="https://orcid.org/0000-0001-8238-6960" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white">
+              <Award size={20} />
+            </a>
+            <a href="https://www.linkedin.com/in/vinayak-kone-8ba631214/" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white">
+              <Linkedin size={20} />
+            </a>
+            <a href="https://github.com/vinayak-k24" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-white">
+              <Github size={20} />
+            </a>
+          </div>
         </motion.div>
       )}
     </nav>
