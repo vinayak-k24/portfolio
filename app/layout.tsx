@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
-import CustomCursor from '@/components/CustomCursor';
+// CustomCursor removed to use native pointer
 import BackgroundElements from '@/components/BackgroundElements';
+import ClearHashOnLoad from '@/components/ClearHashOnLoad';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -21,16 +22,16 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: 'Intelligent Systems Portfolio',
+  title: 'Vinayak Kone Portfolio',
   description: 'Exploring intelligent systems, data architectures, and emerging technologies.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${cormorant.variable} dark`} suppressHydrationWarning>
-      <body className="bg-[#0F0F0F] text-[#E5E7EB] antialiased selection:bg-[#FB923C]/30 selection:text-[#FB923C] cursor-none" suppressHydrationWarning>
-        <CustomCursor />
+      <body className="bg-[#0F0F0F] text-[#E5E7EB] antialiased selection:bg-[#FB923C]/30 selection:text-[#FB923C]" suppressHydrationWarning>
         <BackgroundElements />
+        <ClearHashOnLoad />
         <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,146,60,0.03),transparent_50%)] pointer-events-none" />
         {children}
       </body>

@@ -2,11 +2,12 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex items-center px-6 overflow-hidden">
+    <section id="top" className="relative h-screen flex items-center px-6 overflow-hidden">
       {/* Animated Grid Background */}
       <div className="absolute inset-0 grid-background opacity-20 pointer-events-none" />
       <motion.div 
@@ -41,10 +42,18 @@ export default function Hero() {
         </motion.div>
 
         <div className="flex-1 flex justify-center items-center relative">
-          {/* Organic Abstract Patterns - No Profile Image */}
-          <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-accent/10 clip-path-[polygon(50%_0%,_100%_38%,_82%_100%,_18%_100%,_0%_38%)]"></div>
-          <div className="absolute w-[350px] h-[350px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[550px] bg-accent/20 clip-path-[polygon(20%_0%,_80%_0%,_100%_50%,_80%_100%,_20%_100%,_0%_50%)]"></div>
-          <div className="absolute w-[400px] h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] bg-accent/5 clip-path-[polygon(50%_0%,_100%_25%,_75%_100%,_25%_100%,_0%_25%)]"></div>
+          <div className="absolute w-[320px] h-[320px] md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] bg-accent/12 rounded-[40%] mix-blend-overlay" />
+          <div className="relative w-[220px] h-[220px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl shadow-black/40 bg-secondary/50 backdrop-blur-sm">
+            <Image
+                src="/images/vinayak-passport-single-photo.jpg"
+              alt="Vinayak Kone"
+              fill
+              className="object-cover object-top scale-[0.96]"
+              priority
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-accent/20 rounded-[2rem]" />
+          </div>
         </div>
       </div>
     </section>

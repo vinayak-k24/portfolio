@@ -16,11 +16,23 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-        port: '',
-        pathname: '/**', // This allows any path under the hostname
+        hostname: 'tse1.mm.bing.net',
       },
+      {
+        hostname: 'upload.wikimedia.org',
+      },
+      {
+        hostname: 'logos-world.net',
+      },
+      {
+        hostname: 'w7.pngwing.com',
+      },
+      {
+        hostname: 'www.pngrepo.com',
+      },
+      {
+        hostname: 'asset.brandfetch.io',
+      }
     ],
     unoptimized: true, // Disable Image Optimization API for static export
   },

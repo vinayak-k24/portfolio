@@ -73,6 +73,20 @@
   }
   .hide-scrollbar {
     -ms-overflow-style: none;
-    scrollbar-width: none;
+  }
+  /* utility to force a visible scrollbar (desktop) */
+  .show-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .show-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(251, 146, 60, 0.35);
+    border-radius: 8px;
+  }
+  .show-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .show-scrollbar {
+    -ms-overflow-style: auto;
   }
 }
