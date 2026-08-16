@@ -45,7 +45,7 @@ export default function Hero() {
           <div className="absolute w-[320px] h-[320px] md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] bg-accent/12 rounded-[40%] mix-blend-overlay" />
           <div className="relative w-[220px] h-[220px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl shadow-black/40 bg-secondary/50 backdrop-blur-sm">
             <Image
-              src="/images/profile.jpg"
+                src="/images/vinayak-passport-single-photo.jpg"
               alt="Vinayak Kone"
               fill
               className="object-cover object-top scale-[0.96]"

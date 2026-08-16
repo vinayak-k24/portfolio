@@ -7,38 +7,38 @@ import { FileText, ExternalLink, BookOpen } from 'lucide-react';
 const papers = [
   {
     title: "Sharding-Powered Proof of Stake (SPPS): A Scalable and Secure Solution for Blockchain in Supply Chain Management",
-    journal: "Springer, Singapore",
-    year: "2024",
-    link: "https://orcid.org/0000-0001-8238-6960",
-    abstract: "A novel sharding-based consensus mechanism designed to enhance scalability and security in supply chain blockchain networks."
+    journal: "Springer",
+    year: "Dec 13, 2024",
+    link: "https://link.springer.com/chapter/10.1007/978-981-97-5791-6_54",
+    abstract: "We proposed a sharding and PoS hybrid consensus mechanism that improved blockchain throughput by 40% and reduced confirmation time by 10% for supply chain applications. We segmented the network into smaller shards to enable simultaneous transaction processing and enhanced inter-shard communication. We validated the approach against traditional PoW and PoS mechanisms, demonstrating superior scalability and security. We also addressed flexibility requirements specific to decentralized supply chain services. Our findings opened new avenues for real-world blockchain deployment in logistics and traceability."
   },
   {
     title: "ShardedScale: Empowering Blockchain Transaction Scalability with Scalable Block Consensus",
-    journal: "Procedia Computer Science",
-    year: "2024",
-    link: "https://orcid.org/0000-0001-8238-6960",
-    abstract: "Researching block consensus optimizations to achieve high-throughput transaction processing in sharded blockchain environments."
+    journal: "ScienceDirect",
+    year: "Jan 1, 2024",
+    link: "https://www.sciencedirect.com/science/article/pii/S1877050924005921",
+    abstract: "We designed a hybrid mechanism combining PoW, DPOS, IPFS, and sharding that achieved 60% higher throughput and 40% faster transaction confirmation while reducing gas costs. We integrated IPFS to offload storage and mitigate expanding ledger sizes that plague traditional blockchains. We implemented Dynamic On-demand Proof of Stake to balance energy consumption with validation speed. We benchmarked the system against Ethereum baselines and demonstrated a 30% reduction in gas price consumption. We concluded that hybrid consensus models are essential for next-generation scalable decentralized applications."
   },
   {
     title: "BLOCK-FEMF: Efficient Forensic Evidence Management Framework Using Blockchain Technology",
-    journal: "Springer, Singapore",
-    year: "2023",
-    link: "https://orcid.org/0000-0001-8238-6960",
-    abstract: "A framework for secure and immutable forensic evidence management leveraging decentralized ledger technology."
-  },
-  {
-    title: "Voice-based Gender and Age Recognition System",
-    journal: "IEEE",
-    year: "2023",
-    link: "https://orcid.org/0000-0001-8238-6960",
-    abstract: "Implementing deep learning models for accurate demographic classification from acoustic signals."
+    journal: "Springer",
+    year: "Oct 28, 2023",
+    link: "https://link.springer.com/chapter/10.1007/978-981-99-5792-7_6",
+    abstract: "We developed a Base64 and IPFS-integrated blockchain framework for digital forensics that optimized memory utilization by 20% and enhanced transaction scalability over existing Base32 systems. We replaced the legacy Base32 encoding algorithm to resolve storage limitations and time delay issues in evidence management. We stored encrypted image evidence on-chain while leveraging IPFS for decentralized off-chain storage to optimize memory. We ensured tamper-proof provenance tracking so only authenticated users could access or migrate evidence. We demonstrated through experiments that our framework reduced gas utilization by 19.5% compared to prior approaches."
   },
   {
     title: "Emoji Prediction Using Bi-Directional LSTM",
-    journal: "ITM Web of Conferences",
-    year: "2023",
-    link: "https://orcid.org/0000-0001-8238-6960",
-    abstract: "Utilizing Bi-LSTM architectures to predict contextual emojis in natural language processing tasks."
+    journal: "Semantic Scholar",
+    year: "Jun 1, 2023",
+    link: "https://pdfs.semanticscholar.org/9959/467fc3f4b1809422b1ab98072e6633858404.pdf",
+    abstract: "We implemented a bi-directional LSTM model that achieved 94% accuracy in text-based emoji prediction, outperforming RNN and standard LSTM baselines on Twitter datasets. We trained and evaluated the model on a CodaLab dataset containing 60,000 rows of social media text. We compared multiple NLP architectures including RNN, LSTM, and Bi-LSTM to identify the most effective technique for emoji suggestion. We captured contextual semantics in both forward and backward directions to better understand emotional undertones in text. We concluded that bi-directional LSTMs significantly enhance user texting experience by providing relevant, emotion-aware emoji recommendations."
+  },
+  {
+    title: "Voice-Based Gender and Age Recognition System",
+    journal: "IEEE Xplore",
+    year: "Jun 8, 2023",
+    link: "https://ieeexplore.ieee.org/abstract/document/10141801",
+    abstract: "We developed ML-based voice classification using PCA, Logistic Regression, and sequential deep learning models that achieved 91% gender accuracy and 59% age prediction on Common Voice data. We applied RobustScalar and Principal Component Analysis to extract and reduce speech features before feeding them into the grid search pipeline. We built a sequential model with five hidden layers specifically for gender classification to maximize detection accuracy. We used grid search to systematically evaluate multiple algorithms and select the optimal age prediction model for the dataset. We identified key open challenges in voice-based biometrics and outlined future research directions for improving age estimation reliability."
   }
 ];
 

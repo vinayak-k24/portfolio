@@ -16,46 +16,112 @@ const providerIcons: Record<string, string> = {
 
 const certifications = [
   {
-    title: 'Azure AI Engineer Associate (AI-102)',
-    org: 'Microsoft Certified',
-    date: '2025',
-    link: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/',
+    title: 'NVIDIA-Certified Associate: Accelerated Data Science',
+    org: 'NVIDIA',
+    date: 'Active',
+    link: 'https://www.nvidia.com/en-in/training/',
   },
   {
-    title: 'Azure Fundamentals (AZ-900)',
-    org: 'Microsoft Certified',
-    date: '2025',
-    link: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/',
+    title: 'IBM DevOps Essentials',
+    org: 'Credly',
+    date: 'Active',
+    link: 'https://www.credly.com/users/vinayak-sudhakar-kone/badges/credly',
   },
   {
-    title: 'Google Cloud Generative AI Leader',
+    title: 'IBM Git and GitHub Essentials',
+    org: 'Credly',
+    date: 'Active',
+    link: 'https://www.credly.com/users/vinayak-sudhakar-kone/badges/credly',
+  },
+  {
+    title: 'Generative AI Leader Certification',
     org: 'Google Cloud',
-    date: '2025',
+    date: 'Active',
     link: 'https://www.cloudskillsboost.google/',
   },
   {
-    title: 'GitHub Campus/Developer Recognition',
-    org: 'GitHub',
-    date: '2024',
-    link: 'https://github.com/',
+    title: 'Intelligent Search Technical Expert Badge',
+    org: 'Google Cloud',
+    date: 'Active',
+    link: 'https://www.cloudskillsboost.google/',
   },
   {
-    title: 'NVIDIA Deep Learning Specialization',
-    org: 'NVIDIA',
-    date: '2024',
-    link: 'https://www.nvidia.com/en-us/training/',
+    title: 'Professional Cloud Developer Certification',
+    org: 'Google Cloud',
+    date: 'Active',
+    link: 'https://www.cloudskillsboost.google/',
   },
   {
-    title: 'Credly Verification',
-    org: 'Credly',
-    date: '2025',
-    link: 'https://credly.com/',
-  },
-  {
-    title: 'Anthropic Claude Practitioner',
-    org: 'Anthropic / Claude',
-    date: '2025',
+    title: 'Claude Certified Associate - Foundations',
+    org: 'Anthropic',
+    date: 'Active',
     link: 'https://www.anthropic.com/',
+  },
+  {
+    title: 'Claude Certified Developer - Foundations',
+    org: 'Anthropic',
+    date: 'Active',
+    link: 'https://www.anthropic.com/',
+  },
+  {
+    title: 'Microsoft Certified: Azure AI Engineer Associate (AI-102)',
+    org: 'Microsoft Certified',
+    date: 'Expires Apr 10, 2027',
+    link: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/',
+  },
+  {
+    title: 'Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)',
+    org: 'Microsoft Certified',
+    date: 'Expires Jun 13, 2027',
+    link: 'https://learn.microsoft.com/en-us/users/vinayakkone-7258/credentials/certifications?tab=credentials-tab',
+  },
+  {
+    title: 'Microsoft Certified: Agentic AI Business Solutions Architect (AB-100)',
+    org: 'Microsoft Certified',
+    date: 'Expires Aug 13, 2027',
+    link: 'https://learn.microsoft.com/en-us/users/vinayakkone-7258/credentials/certifications?tab=credentials-tab',
+  },
+  {
+    title: 'Microsoft Certified: Azure Data Fundamentals (DP-900)',
+    org: 'Microsoft Certified',
+    date: 'Active (No Expiry Listed)',
+    link: 'https://learn.microsoft.com/en-us/users/vinayakkone-7258/credentials/certifications?tab=credentials-tab',
+  },
+  {
+    title: 'Microsoft Certified: AI Transformation Leader (AB-731)',
+    org: 'Microsoft Certified',
+    date: 'Active (No Expiry Listed)',
+    link: 'https://learn.microsoft.com/en-us/users/vinayakkone-7258/credentials/certifications?tab=credentials-tab',
+  },
+  {
+    title: 'Microsoft Certified: AI Business Professional (AB-730)',
+    org: 'Microsoft Certified',
+    date: 'Active (No Expiry Listed)',
+    link: 'https://learn.microsoft.com/en-us/users/vinayakkone-7258/credentials/certifications?tab=credentials-tab',
+  },
+  {
+    title: 'Microsoft Certified: Azure Fundamentals (AZ-900)',
+    org: 'Microsoft Certified',
+    date: 'Active (No Expiry Listed)',
+    link: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/',
+  },
+  {
+    title: 'Microsoft Certified: Azure AI Fundamentals (AI-900)',
+    org: 'Microsoft Certified',
+    date: 'Earned Sep 24, 2025',
+    link: 'https://learn.microsoft.com/en-us/users/vinayakkone-7258/credentials/certifications?tab=credentials-tab',
+  },
+  {
+    title: 'GitHub Foundations (GH-900)',
+    org: 'GitHub',
+    date: 'Expires May 9, 2028',
+    link: 'https://learn.microsoft.com/en-us/users/vinayakkone-7258/credentials/certifications?tab=credentials-tab',
+  },
+  {
+    title: 'GitHub Copilot (GH-300)',
+    org: 'GitHub',
+    date: 'Expires Aug 14, 2028',
+    link: 'https://learn.microsoft.com/en-us/users/vinayakkone-7258/credentials/certifications?tab=credentials-tab',
   },
 ];
 
@@ -125,7 +191,6 @@ function CertificationCard({
                 <div className="mt-2 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                 <div className="flex-1">
                   <h4 className="text-lg text-white font-light font-serif leading-snug">{c.title}</h4>
-                  <p className="text-text-secondary text-sm mt-0.5">{c.date}</p>
                 </div>
               </div>
             ))}
